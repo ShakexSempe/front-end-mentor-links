@@ -35,12 +35,32 @@ body {
           grid-template-columns: 1fr; } }
       body #main .projects-grid .project-item {
         border: 1px solid blue;
+        color: #fff;
         padding: 1em .5em;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        height: 50vh; }
+        height: 50vh;
+        position: relative;
+        isolation: isolate; }
+        body #main .projects-grid .project-item::after {
+          position: absolute;
+          content: '';
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          background-color: rgba(0, 0, 0, 0.705);
+          z-index: -1; }
+        body #main .projects-grid .project-item img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background-color: red;
+          z-index: -1;
+          object-fit: cover; }
         body #main .projects-grid .project-item h2 {
           margin-bottom: 1em;
           font-size: 1.5em; }
