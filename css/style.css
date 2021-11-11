@@ -6,10 +6,11 @@
   font-size: 18px; }
 
 body {
-  width: 100vw; }
+  width: 100vw;
+  background-color: #262938; }
   body header {
     width: 100%;
-    background-color: #f4f4f4;
+    background-color: #262938;
     padding: 5vh 5vw; }
     body header h1 {
       text-align: center;
@@ -17,7 +18,8 @@ body {
       font-size: 2.5em;
       background-color: #eee;
       padding: .2em;
-      width: 100%; }
+      width: 100%;
+      border-radius: 5px; }
       @media (max-width: 768px) {
         body header h1 {
           font-size: 2em; } }
@@ -36,8 +38,8 @@ body {
         body #main .projects-grid {
           grid-template-columns: 1fr; } }
       body #main .projects-grid .project-item {
-        border: 1px solid #000;
-        border-radius: 5px;
+        border: none;
+        outline: none;
         color: #fff;
         background-color: #f4f4f4;
         display: flex;
@@ -46,17 +48,30 @@ body {
         align-items: center;
         height: auto;
         text-transform: capitalize;
+        border-radius: 5px;
         position: relative;
         isolation: isolate;
         cursor: pointer; }
+        body #main .projects-grid .project-item::after {
+          position: absolute;
+          content: '';
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 1;
+          border-radius: 5px;
+          box-shadow: inset 2px 2px 4px #fff, inset -2px -2px 4px #000a;
+          z-index: -1; }
         body #main .projects-grid .project-item figure {
           width: 100%;
           height: 50%;
-          overflow: hidden; }
+          overflow: hidden;
+          padding: .3em; }
           body #main .projects-grid .project-item figure img {
             width: 100%;
             height: 100%;
-            background-color: red;
+            border-radius: 5px;
             z-index: -1;
             object-fit: cover;
             transition: .3s; }
@@ -108,7 +123,7 @@ body {
           body #main .projects-grid .project-item a:hover {
             transform: scale(1.2); }
         body #main .projects-grid .project-item:hover figure img {
-          transform: scale(1.1); }
+          transform: scale(1.05); }
         body #main .projects-grid .project-item:hover h2::before {
           opacity: 1;
           width: 50%; }
@@ -116,3 +131,15 @@ body {
           transform: scale(1.2); }
           body #main .projects-grid .project-item:hover a::before {
             opacity: 1; }
+  body footer {
+    background: #f4f4f4;
+    padding: 5vh 0;
+    color: #333;
+    display: grid;
+    place-items: center;
+    text-transform: capitalize; }
+    body footer p {
+      line-height: 1.5; }
+      body footer p span {
+        color: #000;
+        display: block; }

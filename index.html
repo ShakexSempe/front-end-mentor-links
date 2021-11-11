@@ -23,7 +23,7 @@
                     Loopstudios
                 </h2>
                 <p>Landing page using Sass and CSS Grid layout</p>
-                <a href="https://shakexsempe.github.io/loopstudios-landing-page/" target="_blank">link</a>
+                <a href="https://shakexsempe.github.io/loopstudios-landing-page/" target="_blank">view page</a>
             </div>
             <div class="project-item">
                 <figure>
@@ -33,7 +33,7 @@
                     order Summary
                 </h2>
                 <p>mobile first site using sass</p>
-                <a href="https://shakexsempe.github.io/order-summray-component/" target="_blank">link</a>
+                <a href="https://shakexsempe.github.io/order-summray-component/" target="_blank">view page</a>
             </div>
             <div class="project-item">
                 <figure>
@@ -42,14 +42,31 @@
                 <h2>
                     Sunnyside Agency
                 </h2>
-                <p>Responsice Landing Page using Sass</p>
-                <a href="https://shakexsempe.github.io/sunnyside-agency-landing-page/" target="_blank">link</a>
+                <p>Responsive Landing Page using Sass</p>
+                <a href="https://shakexsempe.github.io/sunnyside-agency-landing-page/" target="_blank">view page</a>
+            </div>
+            <div class="project-item">
+                <figure>
+                    <img src="img/calc.png" loading="lazy" alt="img">
+                </figure>
+                <h2>
+                    Calculator App
+                </h2>
+                <p>Themed Javascript calcuator app</p>
+                <a href="https://shakexsempe.github.io/sunnyside-agency-landing-page/" target="_blank">view page</a>
             </div>
         </div>
     </main>
 
-    <footer id="footer"></footer>
+    <footer id="footer">
+        <p>copyright: Boitumelo Sempe</p>
+        <p><span id="date"></span></p>
+    </footer>
     <!-- script -->
+    <script>
+        const date = document.getElementById('date');
+        date.innerHTML = new Date().getFullYear();
+    </script>
     <script src="app.js"></script>
 </body>
 </html>

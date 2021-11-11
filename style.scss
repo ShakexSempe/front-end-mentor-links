@@ -11,9 +11,10 @@ $font-ubuntu: 'Ubuntu', sans-serif;
 
 body {
     width: 100vw;
+    background-color: rgb(38, 41, 56);
     header {
         width: 100%;
-        background-color: #f4f4f4;
+        background-color: rgb(38, 41, 56);
         padding: 5vh 5vw;
 
         h1 {
@@ -23,6 +24,7 @@ body {
             background-color: #eee;
             padding: .2em;
             width: 100%;
+            border-radius: 5px;
             @media(max-width: 768px) {
                 font-size: 2em;
             }
@@ -31,7 +33,6 @@ body {
 
     #main {
         margin: 5vh 5vw;
-
         .projects-grid {
             border: none;
             outline: none;
@@ -46,8 +47,8 @@ body {
             }
 
             .project-item {
-                border: 1px solid #000;
-                border-radius: 5px;
+                border: none;
+                outline: none;
                 color: #fff;
                 background-color: #f4f4f4;
                 display: flex;
@@ -56,29 +57,33 @@ body {
                 align-items: center;
                 height: auto;
                 text-transform: capitalize;
+                border-radius: 5px;
                 position: relative;
                 isolation: isolate;
                 cursor: pointer;
-                // &::after {
-                //     position: absolute;
-                //     content: '';
-                //     top: 0;
-                //     left: 0;
-                //     width: 100%;
-                //     height: 100%;
-                //     opacity: 1;
-                //     background-color: rgba(0, 0, 0, 0.705);
-                //     z-index: -1;
-                // }
+                &::after {
+                    position: absolute;
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 1;
+                    border-radius: 5px;
+                    box-shadow: inset 2px 2px 4px #fff,
+                                inset -2px -2px 4px #000a;
+                    z-index: -1;
+                }
                 figure {
                     width: 100%;
                     height: 50%;
                     overflow: hidden;
+                    padding: .3em;
 
                 img {
                     width: 100%;
                     height: 100%;
-                    background-color: red;
+                    border-radius: 5px;
                     z-index: -1;
                     object-fit: cover;
                     transition: .3s;
@@ -149,7 +154,7 @@ body {
                 &:hover {
                     figure {
                         img {
-                            transform: scale(1.1);
+                            transform: scale(1.05);
                         }
                     }
                     h2 {
@@ -167,5 +172,24 @@ body {
                 }
             }
         }
+    }
+
+    footer {
+        background: #f4f4f4;
+        padding: 5vh 0;
+        color: #333;
+        display: grid;
+        place-items: center;
+        text-transform: capitalize;
+
+        p {
+            line-height: 1.5;
+            span {
+                color: #000;
+                display: block;
+            }
+        }
+
+        
     }
 }
