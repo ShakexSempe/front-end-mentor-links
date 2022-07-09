@@ -180,4 +180,84 @@ body footer p span {
   display: block;
 }
 
+.loader_bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #262626;
+  z-index: 1;
+}
+
+.ring {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8rem;
+  height: 8rem;
+  background: transparent;
+  border: 3px solid #3c3c3c;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  color: #fff000;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px #fff000;
+  box-shadow: 0 0 20px #000001;
+}
+.ring .ring::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top: 3px solid #fff000;
+  border-right: 3px solid #fff000;
+  border-radius: 50%;
+  animation: glowRing 5s linear infinite;
+}
+.ring span {
+  display: block;
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: animate 5s linear infinite;
+}
+.ring span::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff000;
+  top: -6px;
+  right: -8px;
+  box-shadow: 0 0 20px #fff000;
+}
+@keyframes glowRing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
