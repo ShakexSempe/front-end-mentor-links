@@ -11,6 +11,7 @@ $font-ubuntu: 'Ubuntu', sans-serif;
 
 body {
     width: 100vw;
+    overflow-x: hidden;
     background-color: rgb(38, 41, 56);
     header {
         width: 100%;
@@ -32,7 +33,7 @@ body {
     }
 
     #main {
-        margin: 5vh 5vw;
+        padding: 5vh 5vw;
         .projects-grid {
             border: none;
             outline: none;
@@ -44,21 +45,23 @@ body {
             }
             @media (max-width: 500px){
                 grid-template-columns: 1fr;
+                gap: 10vh;
             }
 
             .project-item {
-                border: none;
-                outline: none;
-                color: #fff;
-                background-color: #f4f4f4;
+                position: relative;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
                 align-items: center;
                 height: auto;
+                color: #fff;
+                background-color: #f4f4f4;
                 text-transform: capitalize;
-                border-radius: 5px;
-                position: relative;
+                border-radius: .5rem;
+                border: none;
+                outline: none;
+                overflow: hidden;
                 isolation: isolate;
                 cursor: pointer;
                 &::after {
@@ -69,29 +72,28 @@ body {
                     width: 100%;
                     height: 100%;
                     opacity: 1;
-                    border-radius: 5px;
-                    box-shadow: inset 2px 2px 4px #fff,
-                                inset -2px -2px 4px #000a;
+                    border-radius: .5rem;
+                    box-shadow: inset 2px 2px 2px #fffa,
+                                inset -2px -2px 2px rgba(0, 0, 0, 0.300);
                     z-index: -1;
                 }
                 figure {
                     width: 100%;
                     height: 50%;
                     overflow: hidden;
-                    padding: .3em;
+                    // padding: .3em;
 
                 img {
                     width: 100%;
                     height: 100%;
-                    border-radius: 5px;
                     z-index: -1;
                     object-fit: cover;
                     transition: .3s;
                 }
             }
                 h2 {
-                    margin: 1em 0;
-                    font-size: 1.5em;
+                    margin: 1rem 0 ;
+                    font-size: 1.5rem;
                     // font-family: $font-ubuntu;
                     font-family: $font-rokkit;
                     color: #000;
@@ -99,21 +101,23 @@ body {
                     &::before {
                         position: absolute;
                         content: '';
-                        bottom: -.5em;
+                        bottom: -.25rem;
                         left: 50%;
                         transform: translateX(-50%);
                         width: 0;
                         opacity: 1;
-                        height: 5px;
+                        height: .25rem;
+                        border-radius: 1rem;
                         background: #000;
                         transition: .3s;
                     }
                 }
 
                 p {
-                    margin: 2vh 5vw;
-                    font-size: 1em;
-                    color: #333;
+                    margin: 1rem;
+                    font-size: 1rem;
+                    color: #000;
+                    font-weight: 300;
                     text-align: center;
                     font-family: $font-ubuntu;
                 }
@@ -125,6 +129,7 @@ body {
                     border: none;
                     outline: none;
                     padding: .2em 2em;
+                    font-size: 1rem;
                     margin: 1em auto;
                     transform: scale(.8);
                     border-radius: 5px;
@@ -139,10 +144,12 @@ body {
                         width: 100%;
                         height: 100%;
                         opacity: 0;
-                        border-radius: 5px;
+                        background-color: rgb(38, 41, 56);
+                        border-radius: .5rem;
                         transition: .5s ease;
-                        box-shadow: inset 2px 2px 4px #fff,
-                                    inset -2px -2px 4px #000a;
+                        z-index: -1;
+                        box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .25),
+                                    inset -2px -2px 2px rgba(0,0,0, .25);
                     }
 
                     &:hover {
@@ -164,7 +171,8 @@ body {
                         }
                     }
                     a {
-                        transform: scale(1.2);
+                        transform: scale(1.05);
+                        color: #fff;
                         &::before {
                             opacity: 1;
                         }
