@@ -186,6 +186,52 @@ body footer p span {
   height: 100vh;
   background-color: #262626;
   z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+.spinner {
+  height: 10rem;
+  width: 10rem;
+  position: relative;
+  overflow: hidden;
+  color: #f4f4f4;
+  display: grid;
+  place-items: center;
+  text-transform: capitalize;
+  isolation: isolate;
+}
+.spinner .spinner-sector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  mix-blend-mode: overlay;
+  animation: rotate infinite;
+}
+.spinner .spinner-sector.sector-1 {
+  border-top-color: #dc143c;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
+.spinner .spinner-sector.sector-2 {
+  border-right-color: #ead2a1;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+}
+.spinner .spinner-sector.sector-3 {
+  border-left-color: #29323c;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-out;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .ring {
