@@ -191,8 +191,8 @@ body footer p span {
 }
 
 .spinner {
-  height: 10rem;
-  width: 10rem;
+  height: 4rem;
+  width: 4rem;
   position: relative;
   overflow: hidden;
   color: #f4f4f4;

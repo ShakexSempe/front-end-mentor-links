@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@400;500;700&family=Ubuntu:wght@300;400&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 18px; 
+    font-size: 18px;
 }
-$font-rokkit: 'Rokkitt', serif;
-$font-ubuntu: 'Ubuntu', sans-serif;
+
+$font-rokkit: 'Rokkitt',
+serif;
+$font-ubuntu: 'Ubuntu',
+sans-serif;
 
 body {
     width: 100vw;
     overflow-x: hidden;
-    background-color: rgb(38, 41, 56);
+    background-color: #262938;
+
     header {
         width: 100%;
         background-color: rgb(38, 41, 56);
@@ -26,6 +30,7 @@ body {
             padding: .2em;
             width: 100%;
             border-radius: 5px;
+
             @media(max-width: 768px) {
                 font-size: 2em;
             }
@@ -34,16 +39,19 @@ body {
 
     #main {
         padding: 5vh 5vw;
+
         .projects-grid {
             border: none;
             outline: none;
             display: grid;
             gap: 1em;
             grid-template-columns: 1fr 1fr 1fr;
-            @media (max-width: 768px){
+
+            @media (max-width: 768px) {
                 grid-template-columns: 1fr 1fr;
             }
-            @media (max-width: 500px){
+
+            @media (max-width: 500px) {
                 grid-template-columns: 1fr;
                 gap: 10vh;
             }
@@ -64,6 +72,7 @@ body {
                 overflow: hidden;
                 isolation: isolate;
                 cursor: pointer;
+
                 &::after {
                     position: absolute;
                     content: '';
@@ -74,30 +83,33 @@ body {
                     opacity: 1;
                     border-radius: .5rem;
                     box-shadow: inset 2px 2px 2px #fffa,
-                                inset -2px -2px 2px rgba(0, 0, 0, 0.300);
+                        inset -2px -2px 2px rgba(0, 0, 0, 0.300);
                     z-index: -1;
                 }
+
                 figure {
                     width: 100%;
                     height: 50%;
                     overflow: hidden;
                     // padding: .3em;
 
-                img {
-                    width: 100%;
-                    height: 100%;
-                    z-index: -1;
-                    object-fit: cover;
-                    transition: .3s;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        z-index: -1;
+                        object-fit: cover;
+                        transition: .3s;
+                    }
                 }
-            }
+
                 h2 {
-                    margin: 1rem 0 ;
+                    margin: 1rem 0;
                     font-size: 1.5rem;
                     // font-family: $font-ubuntu;
                     font-family: $font-rokkit;
                     color: #000;
                     position: relative;
+
                     &::before {
                         position: absolute;
                         content: '';
@@ -149,7 +161,7 @@ body {
                         transition: .5s ease;
                         z-index: -1;
                         box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .25),
-                                    inset -2px -2px 2px rgba(0,0,0, .25);
+                            inset -2px -2px 2px rgba(0, 0, 0, .25);
                     }
 
                     &:hover {
@@ -164,15 +176,18 @@ body {
                             transform: scale(1.05);
                         }
                     }
+
                     h2 {
                         &::before {
                             opacity: 1;
                             width: 50%;
                         }
                     }
+
                     a {
                         transform: scale(1.05);
                         color: #fff;
+
                         &::before {
                             opacity: 1;
                         }
@@ -192,13 +207,14 @@ body {
 
         p {
             line-height: 1.5;
+
             span {
                 color: #000;
                 display: block;
             }
         }
 
-        
+
     }
 }
 
@@ -215,8 +231,8 @@ body {
 }
 
 .spinner {
-    height: 10rem;
-    width: 10rem;
+    height: 4rem;
+    width: 4rem;
     // border: .2rem solid yellow;
     position: relative;
     overflow: hidden;
@@ -240,12 +256,14 @@ body {
             animation-duration: 1.5s;
             animation-timing-function: ease-in-out;
         }
+
         &.sector-2 {
             border-right-color: #ead2a1;
             animation-duration: 2s;
             animation-timing-function: ease-in;
 
         }
+
         &.sector-3 {
             border-left-color: #29323c;
             animation-duration: 2.5s;
@@ -256,6 +274,7 @@ body {
             0% {
                 transform: rotate(0);
             }
+
             100% {
                 transform: rotate(360deg);
             }
@@ -285,60 +304,61 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0.5);
 
 
-.ring::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    width: 100%;
-    height: 100%;
-    border: 3px solid transparent;
-    border-top: 3px solid #fff000;
-    border-right: 3px solid #fff000;
-    border-radius: 50%;
-    animation: glowRing 5s linear infinite;
-}
-
-span {
-    display: block;
-    position: absolute;
-    top: calc(50% - 2px);
-    left: 50%;
-    width: 50%;
-    height: 4px;
-    background: transparent;
-    transform-origin: left;
-    animation: animate 5s linear infinite;
-}
-
-span::before {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #fff000;
-    top: -6px;
-    right: -8px;
-    box-shadow: 0 0 20px #fff000;
-}
-
-@keyframes glowRing {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes animate {
-    0% {
-        transform: rotate(45deg);
+    .ring::before {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 100%;
+        height: 100%;
+        border: 3px solid transparent;
+        border-top: 3px solid #fff000;
+        border-right: 3px solid #fff000;
+        border-radius: 50%;
+        animation: glowRing 5s linear infinite;
     }
 
-    100% {
-        transform: rotate(405deg);
+    span {
+        display: block;
+        position: absolute;
+        top: calc(50% - 2px);
+        left: 50%;
+        width: 50%;
+        height: 4px;
+        background: transparent;
+        transform-origin: left;
+        animation: animate 5s linear infinite;
     }
-}
+
+    span::before {
+        content: '';
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff000;
+        top: -6px;
+        right: -8px;
+        box-shadow: 0 0 20px #fff000;
+    }
+
+    @keyframes glowRing {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes animate {
+        0% {
+            transform: rotate(45deg);
+        }
+
+        100% {
+            transform: rotate(405deg);
+        }
+    }
 }
