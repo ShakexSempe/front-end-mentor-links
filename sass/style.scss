@@ -7,215 +7,212 @@
     font-size: 18px;
 }
 
-$font-rokkit: 'Rokkitt',
-serif;
-$font-ubuntu: 'Ubuntu',
-sans-serif;
+$font-rokkit: 'Rokkitt', serif;
+$font-ubuntu: 'Ubuntu', sans-serif;
+
+$main-bg: #262938;
+$main-text: #eee;
+$second-bg: #eee;
+$second-text: #262938;
 
 body {
-    width: 100vw;
-    overflow-x: hidden;
-    background-color: #262938;
+    background-color: $main-bg;
+    font-family: $font-ubuntu;
+}
 
-    header {
-        width: 100%;
-        background-color: rgb(38, 41, 56);
-        padding: 5vh 5vw;
+// HEADER = H1
+header {
+    background-color: $main-bg;
+    padding: 5vh 5vw;
+    text-wrap: balance;
 
-        h1 {
-            text-align: center;
-            font-family: $font-rokkit;
-            font-size: 2.5em;
-            background-color: #eee;
-            padding: .2em;
-            width: 100%;
-            border-radius: 5px;
-
-            @media(max-width: 768px) {
-                font-size: 2em;
-            }
-        }
+    h1 {
+        font-family: $font-ubuntu;
+        text-align: center;
+        color: $main-text;
+        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 4vw, 2rem);
     }
+}
+// MAIN SECTION
+#main {
+    padding: 5vh 5vw;
 
-    #main {
-        padding: 5vh 5vw;
+    .projects-grid {
+        border: none;
+        outline: none;
+        display: grid;
+        gap: 1em;
+        grid-template-columns: 1fr 1fr 1fr;
 
-        .projects-grid {
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+            gap: 10vh;
+        }
+
+        .project-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            height: auto;
+            color: #fff;
+            background-color: #f4f4f4;
+            text-transform: capitalize;
+            border-radius: .5rem;
             border: none;
             outline: none;
-            display: grid;
-            gap: 1em;
-            grid-template-columns: 1fr 1fr 1fr;
+            overflow: hidden;
+            isolation: isolate;
+            cursor: pointer;
 
-            @media (max-width: 768px) {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            @media (max-width: 500px) {
-                grid-template-columns: 1fr;
-                gap: 10vh;
-            }
-
-            .project-item {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                align-items: center;
-                height: auto;
-                color: #fff;
-                background-color: #f4f4f4;
-                text-transform: capitalize;
+            &::after {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 1;
                 border-radius: .5rem;
+                box-shadow: inset 2px 2px 2px #fffa,
+                    inset -2px -2px 2px rgba(0, 0, 0, 0.300);
+                z-index: -1;
+            }
+
+            figure {
+                width: 100%;
+                height: 50%;
+                overflow: hidden;
+                // padding: .3em;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    object-fit: cover;
+                    transition: .3s;
+                }
+            }
+
+            h2 {
+                margin: 1rem 0;
+                font-size: 1.5rem;
+                // font-family: $font-ubuntu;
+                font-family: $font-rokkit;
+                color: #000;
+                position: relative;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    bottom: -.25rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    opacity: 1;
+                    height: .25rem;
+                    border-radius: 1rem;
+                    background: #000;
+                    transition: .3s;
+                }
+            }
+
+            p {
+                margin: 1rem;
+                font-size: 1rem;
+                color: #000;
+                font-weight: 300;
+                text-align: center;
+                font-family: $font-ubuntu;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+                // background-color: #000;
                 border: none;
                 outline: none;
-                overflow: hidden;
-                isolation: isolate;
-                cursor: pointer;
+                padding: .2em 2em;
+                font-size: 1rem;
+                margin: 1em auto;
+                transform: scale(.8);
+                border-radius: 5px;
+                position: relative;
+                transition: .5s ease;
 
-                &::after {
+                &::before {
                     position: absolute;
                     content: '';
                     top: 0;
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    opacity: 1;
+                    opacity: 0;
+                    background-color: rgb(38, 41, 56);
                     border-radius: .5rem;
-                    box-shadow: inset 2px 2px 2px #fffa,
-                        inset -2px -2px 2px rgba(0, 0, 0, 0.300);
+                    transition: .5s ease;
                     z-index: -1;
+                    box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .25),
+                        inset -2px -2px 2px rgba(0, 0, 0, .25);
                 }
 
-                figure {
-                    width: 100%;
-                    height: 50%;
-                    overflow: hidden;
-                    // padding: .3em;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
 
+            // hover state
+            &:hover {
+                figure {
                     img {
-                        width: 100%;
-                        height: 100%;
-                        z-index: -1;
-                        object-fit: cover;
-                        transition: .3s;
+                        transform: scale(1.05);
                     }
                 }
 
                 h2 {
-                    margin: 1rem 0;
-                    font-size: 1.5rem;
-                    // font-family: $font-ubuntu;
-                    font-family: $font-rokkit;
-                    color: #000;
-                    position: relative;
-
                     &::before {
-                        position: absolute;
-                        content: '';
-                        bottom: -.25rem;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        width: 0;
                         opacity: 1;
-                        height: .25rem;
-                        border-radius: 1rem;
-                        background: #000;
-                        transition: .3s;
+                        width: 50%;
                     }
-                }
-
-                p {
-                    margin: 1rem;
-                    font-size: 1rem;
-                    color: #000;
-                    font-weight: 300;
-                    text-align: center;
-                    font-family: $font-ubuntu;
                 }
 
                 a {
-                    text-decoration: none;
-                    color: #000;
-                    // background-color: #000;
-                    border: none;
-                    outline: none;
-                    padding: .2em 2em;
-                    font-size: 1rem;
-                    margin: 1em auto;
-                    transform: scale(.8);
-                    border-radius: 5px;
-                    position: relative;
-                    transition: .5s ease;
+                    transform: scale(1.05);
+                    color: #fff;
 
                     &::before {
-                        position: absolute;
-                        content: '';
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        opacity: 0;
-                        background-color: rgb(38, 41, 56);
-                        border-radius: .5rem;
-                        transition: .5s ease;
-                        z-index: -1;
-                        box-shadow: inset 2px 2px 2px rgba(255, 255, 255, .25),
-                            inset -2px -2px 2px rgba(0, 0, 0, .25);
-                    }
-
-                    &:hover {
-                        transform: scale(1.2);
-                    }
-                }
-
-                // hover state
-                &:hover {
-                    figure {
-                        img {
-                            transform: scale(1.05);
-                        }
-                    }
-
-                    h2 {
-                        &::before {
-                            opacity: 1;
-                            width: 50%;
-                        }
-                    }
-
-                    a {
-                        transform: scale(1.05);
-                        color: #fff;
-
-                        &::before {
-                            opacity: 1;
-                        }
+                        opacity: 1;
                     }
                 }
             }
         }
     }
+}
+// FOOTER
+footer {
+    background: #f4f4f4;
+    padding: 5vh 0;
+    color: #333;
+    display: grid;
+    place-items: center;
+    text-transform: capitalize;
 
-    footer {
-        background: #f4f4f4;
-        padding: 5vh 0;
-        color: #333;
-        display: grid;
-        place-items: center;
-        text-transform: capitalize;
+    p {
+        line-height: 1.5;
 
-        p {
-            line-height: 1.5;
-
-            span {
-                color: #000;
-                display: block;
-            }
+        span {
+            color: #000;
+            display: block;
         }
-
-
     }
+
+
 }
 
 // PRELOADER 

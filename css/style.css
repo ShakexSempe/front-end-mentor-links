@@ -7,33 +7,27 @@
 }
 
 body {
-  width: 100vw;
-  overflow-x: hidden;
   background-color: #262938;
+  font-family: "Ubuntu", sans-serif;
 }
-body header {
-  width: 100%;
+
+header {
   background-color: #262938;
   padding: 5vh 5vw;
+  text-wrap: balance;
 }
-body header h1 {
+header h1 {
+  font-family: "Ubuntu", sans-serif;
   text-align: center;
-  font-family: "Rokkitt", serif;
-  font-size: 2.5em;
-  background-color: #eee;
-  padding: 0.2em;
-  width: 100%;
-  border-radius: 5px;
+  color: #eee;
+  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
 }
-@media (max-width: 768px) {
-  body header h1 {
-    font-size: 2em;
-  }
-}
-body #main {
+
+#main {
   padding: 5vh 5vw;
 }
-body #main .projects-grid {
+#main .projects-grid {
   border: none;
   outline: none;
   display: grid;
@@ -41,17 +35,17 @@ body #main .projects-grid {
   grid-template-columns: 1fr 1fr 1fr;
 }
 @media (max-width: 768px) {
-  body #main .projects-grid {
+  #main .projects-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 500px) {
-  body #main .projects-grid {
+  #main .projects-grid {
     grid-template-columns: 1fr;
     gap: 10vh;
   }
 }
-body #main .projects-grid .project-item {
+#main .projects-grid .project-item {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -68,7 +62,7 @@ body #main .projects-grid .project-item {
   isolation: isolate;
   cursor: pointer;
 }
-body #main .projects-grid .project-item::after {
+#main .projects-grid .project-item::after {
   position: absolute;
   content: "";
   top: 0;
@@ -80,26 +74,26 @@ body #main .projects-grid .project-item::after {
   box-shadow: inset 2px 2px 2px #fffa, inset -2px -2px 2px rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
-body #main .projects-grid .project-item figure {
+#main .projects-grid .project-item figure {
   width: 100%;
   height: 50%;
   overflow: hidden;
 }
-body #main .projects-grid .project-item figure img {
+#main .projects-grid .project-item figure img {
   width: 100%;
   height: 100%;
   z-index: -1;
   object-fit: cover;
   transition: 0.3s;
 }
-body #main .projects-grid .project-item h2 {
+#main .projects-grid .project-item h2 {
   margin: 1rem 0;
   font-size: 1.5rem;
   font-family: "Rokkitt", serif;
   color: #000;
   position: relative;
 }
-body #main .projects-grid .project-item h2::before {
+#main .projects-grid .project-item h2::before {
   position: absolute;
   content: "";
   bottom: -0.25rem;
@@ -112,7 +106,7 @@ body #main .projects-grid .project-item h2::before {
   background: #000;
   transition: 0.3s;
 }
-body #main .projects-grid .project-item p {
+#main .projects-grid .project-item p {
   margin: 1rem;
   font-size: 1rem;
   color: #000;
@@ -120,7 +114,7 @@ body #main .projects-grid .project-item p {
   text-align: center;
   font-family: "Ubuntu", sans-serif;
 }
-body #main .projects-grid .project-item a {
+#main .projects-grid .project-item a {
   text-decoration: none;
   color: #000;
   border: none;
@@ -133,7 +127,7 @@ body #main .projects-grid .project-item a {
   position: relative;
   transition: 0.5s ease;
 }
-body #main .projects-grid .project-item a::before {
+#main .projects-grid .project-item a::before {
   position: absolute;
   content: "";
   top: 0;
@@ -147,24 +141,25 @@ body #main .projects-grid .project-item a::before {
   z-index: -1;
   box-shadow: inset 2px 2px 2px rgba(255, 255, 255, 0.25), inset -2px -2px 2px rgba(0, 0, 0, 0.25);
 }
-body #main .projects-grid .project-item a:hover {
+#main .projects-grid .project-item a:hover {
   transform: scale(1.2);
 }
-body #main .projects-grid .project-item:hover figure img {
+#main .projects-grid .project-item:hover figure img {
   transform: scale(1.05);
 }
-body #main .projects-grid .project-item:hover h2::before {
+#main .projects-grid .project-item:hover h2::before {
   opacity: 1;
   width: 50%;
 }
-body #main .projects-grid .project-item:hover a {
+#main .projects-grid .project-item:hover a {
   transform: scale(1.05);
   color: #fff;
 }
-body #main .projects-grid .project-item:hover a::before {
+#main .projects-grid .project-item:hover a::before {
   opacity: 1;
 }
-body footer {
+
+footer {
   background: #f4f4f4;
   padding: 5vh 0;
   color: #333;
@@ -172,10 +167,10 @@ body footer {
   place-items: center;
   text-transform: capitalize;
 }
-body footer p {
+footer p {
   line-height: 1.5;
 }
-body footer p span {
+footer p span {
   color: #000;
   display: block;
 }
