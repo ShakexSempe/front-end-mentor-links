@@ -98,6 +98,7 @@ header h1 {
 #main .projects-grid .project-item a {
   text-decoration: none;
   color: inherit;
+  background-color: #262938;
   color: #eee;
   border: none;
   padding: 0.5rem 1rem;
@@ -115,6 +116,7 @@ header h1 {
   border-radius: 0.5rem;
   transition: 0.25s ease;
   z-index: -1;
+  opacity: 0;
 }
 #main .projects-grid .project-item a::before {
   background: linear-gradient(0deg, #252837, #34384c);
@@ -133,6 +135,12 @@ header h1 {
   opacity: 0;
 }
 #main .projects-grid .project-item a:active::after {
+  opacity: 1;
+}
+#main .projects-grid .project-item a:hover::before {
+  opacity: 0;
+}
+#main .projects-grid .project-item a:hover::after {
   opacity: 1;
 }
 #main .projects-grid .project-item:hover figure img {
